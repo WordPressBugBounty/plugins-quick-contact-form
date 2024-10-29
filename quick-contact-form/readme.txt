@@ -1,8 +1,8 @@
 === Quick Contact Form ===
 Contributors: Fullworks
 Tags: contact form, form, email form, custom form, form builder
-Tested up to: 6.6
-Stable tag: 8.1.2
+Tested up to: 6.7
+Stable tag: 8.1.3
 License: GPLv3 or later
 Type: freemium
 
@@ -112,6 +112,9 @@ I did, and so have you.  Maybe there will be more, who knows.
 
 
 == Changelog ==
+= 8.1.3 =
+* Update libraries
+
 = 8.1.2 =
 * Fix issue with sending emails
 
