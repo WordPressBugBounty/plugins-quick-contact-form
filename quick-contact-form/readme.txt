@@ -2,7 +2,7 @@
 Contributors: Fullworks
 Tags: contact form, form, email form, custom form, form builder
 Tested up to: 6.7
-Stable tag: 8.1.3
+Stable tag: 8.2
 License: GPLv3 or later
 Type: freemium
 
@@ -62,6 +62,7 @@ Tested with PHP 8.2  - please note there are deprecation notices and warnings th
 *   View and access emailed attachments
 *   Mailchimp integration
 *   Active Campaign integration
+*   Additionl textarea field
 
 = Developers plugin page =
 
@@ -112,6 +113,9 @@ I did, and so have you.  Maybe there will be more, who knows.
 
 
 == Changelog ==
+= 8.2 =
+* Add  extra textarea ( Pro version only)
+
 = 8.1.3 =
 * Update libraries
 

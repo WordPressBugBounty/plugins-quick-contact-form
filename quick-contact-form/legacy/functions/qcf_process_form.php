@@ -58,6 +58,7 @@ function qcf_process_confirmations(
     $dir,
     $attachments
 ) {
+    global $quick_contact_form_fs;
     $reply = qcf_get_stored_reply( $id );
     $style = qcf_get_stored_style( $id );
     $content = '';
@@ -129,6 +130,8 @@ function qcf_process_confirmations(
                         $values['qcfname4'] = '';
                     }
                     $content .= '<p><b>' . $qcf['label'][$item] . ': </b>' . strip_tags( stripslashes( $values['qcfname4'] ), $qcf['htmltags'] ) . '</p>';
+                    break;
+                case 'field41':
                     break;
                 case 'field5':
                     if ( $qcf['selectora'] == 'checkboxa' ) {
@@ -359,7 +362,7 @@ function qcf_store_message(
         'type'        => $values['type'],
         'attachments' => $att,
     );
-    for ($i = 1; $i <= 15; $i++) {
+    for ($i = 1; $i <= 99; $i++) {
         $key = 'qcfname' . $i;
         $message['field' . $i] = $values[$key] ?? '';
         // If the field is 5, 6 or 7, check for any additional '_anystring' fields

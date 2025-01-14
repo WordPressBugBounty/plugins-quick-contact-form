@@ -68,6 +68,7 @@ function qcf_display_form(  $values, $errors, $id  ) {
                     list( $required, $content ) = qcf_form_field_error( $errors, 'qcfname4', $content );
                     $content .= '<textarea id="qcf-form-field-id-' . $id . '-4" placeholder="' . $values['qcfname4'] . '" class="qcf-form-field' . $required . '"  rows="' . $qcf['lines'] . '" name="qcfname4"></textarea>' . "\r\t";
                     break;
+                case 'field41':
                 case 'field5':
                     if ( isset( $errors['qcfname5'] ) && $errors['qcfname5'] ) {
                         $required = 'error';

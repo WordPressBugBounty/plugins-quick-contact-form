@@ -1,6 +1,7 @@
 <?php
 
 function qcf_get_stored_options(  $id  ) {
+    global $quick_contact_form_fs;
     $qcf = get_option( 'qcf_settings' . $id );
     if ( !is_array( $qcf ) ) {
         $qcf = array();
@@ -209,6 +210,7 @@ function qcf_get_stored_reply(  $id  ) {
 }
 
 function qcf_get_stored_error(  $id  ) {
+    global $quick_contact_form_fs;
     $error = get_option( 'qcf_error' . $id );
     if ( !is_array( $error ) ) {
         $error = array();

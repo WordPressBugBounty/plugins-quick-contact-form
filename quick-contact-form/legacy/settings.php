@@ -220,7 +220,7 @@ function qcf_setup(  $id  ) {
         global $quick_contact_form_fs;
         if ( $quick_contact_form_fs->is_trial() || $quick_contact_form_fs->is_trial_utilized() ) {
             $upurl = $quick_contact_form_fs->get_upgrade_url();
-            $upmsg = esc_html__( 'Upgrade to Pro', 'quick-contact-form' );
+            $upmsg = esc_html__( 'Upgrade to Paid ( from trial ) ', 'quick-contact-form' );
         } else {
             $upurl = $quick_contact_form_fs->get_trial_url();
             $upmsg = esc_html__( 'Go Pro: Free 14 Day Trial', 'quick-contact-form' );
@@ -236,6 +236,7 @@ function qcf_setup(  $id  ) {
 }
 
 function qcf_form_settings(  $id  ) {
+    global $quick_contact_form_fs;
     $active_buttons = array(
         'field1',
         'field2',
@@ -375,6 +376,8 @@ function qcf_form_settings(  $id  ) {
                 $type = esc_html__( 'Textarea', 'quick-contact-form' );
                 $options = 'Number of rows: <input type="text" style="border:1px solid #415063; width:3em;" name="lines" value ="' . esc_attr( $qcf['lines'] ) . '" /><br>
             Allowed Tags:<br><input type="text" style="border:1px solid #415063;" name="htmltags" value="' . esc_attr( $qcf['htmltags'] ) . '" />';
+                break;
+            case 'field41':
                 break;
             case 'field5':
                 $type = esc_html__( 'Selector', 'quick-contact-form' );
@@ -1057,6 +1060,7 @@ function qcf_reply_page(  $id  ) {
 }
 
 function qcf_error_page(  $id  ) {
+    global $quick_contact_form_fs;
     qcf_change_form_update();
     if ( isset( $_POST['Submit'] ) && check_admin_referer( "save_qcf" ) ) {
         for ($i = 1; $i <= 13; $i++) {
@@ -1148,8 +1152,8 @@ function qcf_error_page(  $id  ) {
     <tr>
     <td></td>
     <td><input type="checkbox" style="margin: 0; padding: 0; border: none;" name="phonecheck"' . esc_attr( $error['phonecheck'] ) . ' value="checked" /> Check for invalid phone number even if field is not required</td>
-    </tr>
-    <tr>
+    </tr>';
+    $content .= '<tr>
     <td>If <em>' . esc_html( $qcf['label']['field4'] ) . '</em> is missing:</td>
     <td><input type="text" name="error4" value="' . esc_attr( $error['field4'] ) . '" /></td>
     </tr>

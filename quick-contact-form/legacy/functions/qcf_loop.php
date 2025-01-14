@@ -12,7 +12,7 @@ function qcf_loop( $id ) {
 		$values['answer'] = $digit1 - $digit2;
 	}
 	$qcf = qcf_get_stored_options( $id );
-	for ( $i = 1; $i <= 14; $i ++ ) {
+	for ( $i = 1; $i <= 99; $i ++ ) {
 		if ( isset( $qcf['label'][ 'field' . $i ] ) ) {
 			$values[ 'qcfname' . $i ] = $qcf['label'][ 'field' . $i ];
 		}

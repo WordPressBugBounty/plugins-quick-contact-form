@@ -1,4 +1,4 @@
-# Copyright (C) 2024 quick-contact-form
+# Copyright (C) 2025 quick-contact-form
 # This file is distributed under the same license as the quick-contact-form package.
 msgid ""
 msgstr ""
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Quick Contact Form Messages"
 msgstr ""
 
-#: quick-contact-form/legacy/messages.php:118, quick-contact-form/legacy/messages.php:139, quick-contact-form/legacy/messages.php:154, quick-contact-form/legacy/messages.php:178, quick-contact-form/legacy/messages.php:198, quick-contact-form/legacy/messages.php:229, quick-contact-form/legacy/settings.php:1897
+#: quick-contact-form/legacy/messages.php:118, quick-contact-form/legacy/messages.php:139, quick-contact-form/legacy/messages.php:154, quick-contact-form/legacy/messages.php:178, quick-contact-form/legacy/messages.php:198, quick-contact-form/legacy/messages.php:229, quick-contact-form/legacy/settings.php:1916
 msgid "Nonce validation - security failed"
 msgstr ""
 
@@ -53,11 +53,11 @@ msgstr ""
 msgid "The message options have been updated."
 msgstr ""
 
-#: quick-contact-form/legacy/messages.php:253, quick-contact-form/legacy/settings.php:92, quick-contact-form/legacy/settings.php:236, quick-contact-form/legacy/settings.php:1365
+#: quick-contact-form/legacy/messages.php:253, quick-contact-form/legacy/settings.php:92, quick-contact-form/legacy/settings.php:236, quick-contact-form/legacy/settings.php:1384
 msgid "Go Pro: Free 14 Day Trial"
 msgstr ""
 
-#: quick-contact-form/legacy/messages.php:250, quick-contact-form/legacy/settings.php:89, quick-contact-form/legacy/settings.php:233, quick-contact-form/legacy/settings.php:1362, quick-contact-form/legacy/settings.php:1484, quick-contact-form/legacy/settings.php:1992
+#: quick-contact-form/legacy/messages.php:250, quick-contact-form/legacy/settings.php:89, quick-contact-form/legacy/settings.php:1381, quick-contact-form/legacy/settings.php:1503, quick-contact-form/legacy/settings.php:2011
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -77,215 +77,219 @@ msgstr ""
 msgid "Spam selected"
 msgstr ""
 
-#: quick-contact-form/legacy/messages.php:332, quick-contact-form/legacy/settings.php:456
+#: quick-contact-form/legacy/messages.php:332, quick-contact-form/legacy/settings.php:468
 msgid "Consent"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:44
+#: quick-contact-form/legacy/options.php:45
 msgid "Your Name"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:45, quick-contact-form/legacy/settings.php:385
+#: quick-contact-form/legacy/options.php:46, quick-contact-form/legacy/settings.php:389
 msgid "Email"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:46, quick-contact-form/legacy/settings.php:389
+#: quick-contact-form/legacy/options.php:47, quick-contact-form/legacy/settings.php:393
 msgid "Telephone"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:47
+#: quick-contact-form/legacy/options.php:48
 msgid "Message"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:48, quick-contact-form/legacy/options.php:49, quick-contact-form/legacy/options.php:50
+#: quick-contact-form/legacy/options.php:49, quick-contact-form/legacy/options.php:50, quick-contact-form/legacy/options.php:51
 msgid "Select a value"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:51
+#: quick-contact-form/legacy/options.php:52
 msgid "Website"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:52
+#: quick-contact-form/legacy/options.php:53
 msgid "Subject"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:53
+#: quick-contact-form/legacy/options.php:54
 msgid "Select date"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:54, quick-contact-form/legacy/options.php:56
+#: quick-contact-form/legacy/options.php:55, quick-contact-form/legacy/options.php:57
 msgid "Add text"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:55
+#: quick-contact-form/legacy/options.php:56
 msgid "Spambot blocker question"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:57
+#: quick-contact-form/legacy/options.php:58
 msgid "Select Value"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:58
+#: quick-contact-form/legacy/options.php:59
 msgid "I consent to my data being retained by the site owner after the application has been processed."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:65
+#: quick-contact-form/legacy/options.php:66
 msgid "Donald Duck,Mickey Mouse,Goofy"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:66
+#: quick-contact-form/legacy/options.php:67
 msgid "Large,Medium,Small"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:67
+#: quick-contact-form/legacy/options.php:68
 msgid "Enquiry Form"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:68
+#: quick-contact-form/legacy/options.php:69
 msgid "Fill in the form below and we will be in touch soon"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:69
+#: quick-contact-form/legacy/options.php:70
 msgid "Send it!"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:92
+#: quick-contact-form/legacy/options.php:92, quick-contact-form/legacy/options.php:104, quick-contact-form/ui/admin/class-admin-settings.php:150
+msgid "Text"
+msgstr ""
+
+#: quick-contact-form/legacy/options.php:126
 msgid "I consent to my data being retained by the site owner after the form has been processed."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:106
+#: quick-contact-form/legacy/options.php:140
 msgid "Attach an image (Max 100kB)"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:112
+#: quick-contact-form/legacy/options.php:146
 msgid "There is a problem with your attachment. Please check file formats and size."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:113
+#: quick-contact-form/legacy/options.php:147
 msgid "File is too big"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:114
+#: quick-contact-form/legacy/options.php:148
 msgid "Filetype not permitted"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:115
+#: quick-contact-form/legacy/options.php:149
 msgid "Attachment missing"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:188
+#: quick-contact-form/legacy/options.php:222
 msgid "Message sent!"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:189
+#: quick-contact-form/legacy/options.php:223
 msgid "Thank you for your enquiry, I&#146;ll be in contact soon"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:192
+#: quick-contact-form/legacy/options.php:226
 msgid "Thank you for your enquiry"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:193
+#: quick-contact-form/legacy/options.php:227
 msgid "I&#146;ll be in contact soon. If you have any questions please reply to this email."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:198
+#: quick-contact-form/legacy/options.php:232
 msgid "Enquiry from"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:202
+#: quick-contact-form/legacy/options.php:236
 msgid "Thank you for your enquiry. This is a copy of your message"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:205
+#: quick-contact-form/legacy/options.php:239
 msgid "The message is:"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:227
+#: quick-contact-form/legacy/options.php:262
 msgid "A telephone number is needed"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:229
+#: quick-contact-form/legacy/options.php:264
 msgid "Select an option from the list"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:230
+#: quick-contact-form/legacy/options.php:265
 msgid "Check at least one box"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:231
+#: quick-contact-form/legacy/options.php:266
 msgid "There is an error"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:234
+#: quick-contact-form/legacy/options.php:269
 msgid "Please select a date"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:235, quick-contact-form/legacy/options.php:236
+#: quick-contact-form/legacy/options.php:270, quick-contact-form/legacy/options.php:271
 msgid "Enter a value"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:237
+#: quick-contact-form/legacy/options.php:272
 msgid "There&#146;s a problem with your email address"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:238
+#: quick-contact-form/legacy/options.php:273
 msgid "Please check your phone number"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:239
+#: quick-contact-form/legacy/options.php:274
 msgid "Answer the sum please"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:240
+#: quick-contact-form/legacy/options.php:275
 msgid "That&#146;s not the right answer, try again"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:241
+#: quick-contact-form/legacy/options.php:276
 msgid "Oops, got a few problems here"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:242
+#: quick-contact-form/legacy/options.php:277
 msgid "Can you sort out the details highlighted below."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:245
+#: quick-contact-form/legacy/options.php:280
 msgid "Consent is required before sending."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:246
+#: quick-contact-form/legacy/options.php:281
 msgid "Your Details have been flagged as spam"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:247
+#: quick-contact-form/legacy/options.php:282
 msgid "Checking..."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:248
+#: quick-contact-form/legacy/options.php:283
 msgid "Sending message..."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:249, quick-contact-form/legacy/functions/qcf_process_form.php:374
+#: quick-contact-form/legacy/options.php:284, quick-contact-form/legacy/functions/qcf_process_form.php:383
 msgid "Redirecting..."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:314, quick-contact-form/legacy/options.php:332
+#: quick-contact-form/legacy/options.php:352, quick-contact-form/legacy/options.php:370
 msgid "Join our mailing list"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:368
+#: quick-contact-form/legacy/options.php:406
 msgid "Thank you for your enquiry."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:369
+#: quick-contact-form/legacy/options.php:407
 msgid "We will be in contact soon. If you have any questions please reply to this email."
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:386
+#: quick-contact-form/legacy/options.php:424
 msgid "For your information"
 msgstr ""
 
-#: quick-contact-form/legacy/options.php:387
+#: quick-contact-form/legacy/options.php:425
 msgid "Please respond to confirm your email address"
 msgstr ""
 
@@ -309,147 +313,151 @@ msgstr ""
 msgid "Build an email list and send messages."
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:322
+#: quick-contact-form/legacy/settings.php:233
+msgid "Upgrade to Paid ( from trial ) "
+msgstr ""
+
+#: quick-contact-form/legacy/settings.php:326
 msgid "The default form settings have been updated."
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:320, quick-contact-form/legacy/settings.php:329
+#: quick-contact-form/legacy/settings.php:324, quick-contact-form/legacy/settings.php:333
 msgid "The form settings for"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:320
+#: quick-contact-form/legacy/settings.php:324
 msgid "have been updated."
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:331
+#: quick-contact-form/legacy/settings.php:335
 msgid "The default form settings have been reset."
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:329
+#: quick-contact-form/legacy/settings.php:333
 msgid "have been reset."
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:381, quick-contact-form/legacy/settings.php:419, quick-contact-form/legacy/settings.php:423
+#: quick-contact-form/legacy/settings.php:385, quick-contact-form/legacy/settings.php:431, quick-contact-form/legacy/settings.php:435
 msgid "Textbox"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:386
+#: quick-contact-form/legacy/settings.php:390
 msgid "also validates format"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:390
+#: quick-contact-form/legacy/settings.php:394
 msgid "also checks number format"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:393
+#: quick-contact-form/legacy/settings.php:397, quick-contact-form/legacy/settings.php:403
 msgid "Textarea"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:398, quick-contact-form/legacy/settings.php:405, quick-contact-form/legacy/settings.php:412
+#: quick-contact-form/legacy/settings.php:410, quick-contact-form/legacy/settings.php:417, quick-contact-form/legacy/settings.php:424
 msgid "Selector"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:457
+#: quick-contact-form/legacy/settings.php:469
 msgid "Add a checkbox to permit data storage. html links are permitted"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:810
+#: quick-contact-form/legacy/settings.php:822
 msgid "Set the margins and padding of each bit using CSS shortcodes"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:900
+#: quick-contact-form/legacy/settings.php:912
 msgid "Use the Additional CSS option"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1451
+#: quick-contact-form/legacy/settings.php:1470
 msgid "Upgrade to Pro for these great Extensions"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1452
+#: quick-contact-form/legacy/settings.php:1471
 msgid "Upgrading gets you the following extra features (with more to come):"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1453
+#: quick-contact-form/legacy/settings.php:1472
 msgid "Connect to Mailchimp, create your own mailing list and customise your redirections"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1455
+#: quick-contact-form/legacy/settings.php:1474
 msgid "Send messages to everyone in your mailing list (only restricted by your hosting limits)"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1457
+#: quick-contact-form/legacy/settings.php:1476
 msgid "You can also send email to selected people from the Message Centre"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1458
+#: quick-contact-form/legacy/settings.php:1477
 msgid "View and access message attachments in the message centre"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1460
+#: quick-contact-form/legacy/settings.php:1479
 msgid "Upgrade"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1461
+#: quick-contact-form/legacy/settings.php:1480
 msgid "Click the button below to pay for your upgrade"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1461
+#: quick-contact-form/legacy/settings.php:1480
 msgid "Once payment has cleared upgrading is automatic"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1461
+#: quick-contact-form/legacy/settings.php:1480
 msgid "But if something does go awry you will get an email with an authorisation key that you can enter below."
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1375, quick-contact-form/legacy/settings.php:1393
+#: quick-contact-form/legacy/settings.php:1394, quick-contact-form/legacy/settings.php:1412
 msgid "This will only work if you are collecting names and email addresses"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1376, quick-contact-form/legacy/settings.php:1394
+#: quick-contact-form/legacy/settings.php:1395, quick-contact-form/legacy/settings.php:1413
 msgid "Opt-in message message:"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1377
+#: quick-contact-form/legacy/settings.php:1396
 msgid "Active Campaign API Key"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1378
+#: quick-contact-form/legacy/settings.php:1397
 msgid "Active Campaign URL"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1395
+#: quick-contact-form/legacy/settings.php:1414
 msgid "Your Mailchimp API Key:"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1396
+#: quick-contact-form/legacy/settings.php:1415
 msgid "The Mailchimp Audience ID:"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1405
+#: quick-contact-form/legacy/settings.php:1424
 msgid "Set up your own mailing list and send emails from your dashboard"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1406
+#: quick-contact-form/legacy/settings.php:1425
 msgid "Manage mailing list"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1406
+#: quick-contact-form/legacy/settings.php:1425
 msgid "Send an email"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1484
+#: quick-contact-form/legacy/settings.php:1503
 msgid "To build a mailing list"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1987
+#: quick-contact-form/legacy/settings.php:2006
 msgid "Help and Support"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:1996
+#: quick-contact-form/legacy/settings.php:2015
 msgid "Pro: Free 14 Day Trial"
 msgstr ""
 
-#: quick-contact-form/legacy/settings.php:2097
+#: quick-contact-form/legacy/settings.php:2116
 msgid "Documentation"
 msgstr ""
 
@@ -466,7 +474,7 @@ msgstr ""
 msgid "All options for the quick contact form are changed on the plugin %1$sSettings%2$s page."
 msgstr ""
 
-#: quick-contact-form/legacy/functions/qcf_process_form.php:266
+#: quick-contact-form/legacy/functions/qcf_process_form.php:275
 msgid "Attachments:"
 msgstr ""
 
@@ -508,10 +516,6 @@ msgstr ""
 
 #: quick-contact-form/ui/admin/class-admin-settings.php:146
 msgid "Checkbox description"
-msgstr ""
-
-#: quick-contact-form/ui/admin/class-admin-settings.php:150
-msgid "Text"
 msgstr ""
 
 #: quick-contact-form/ui/admin/class-admin-settings.php:158
