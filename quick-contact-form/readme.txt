@@ -2,7 +2,7 @@
 Contributors: Fullworks
 Tags: contact form, form, email form, custom form, form builder
 Tested up to: 6.7
-Stable tag: 8.2
+Stable tag: 8.2.1
 License: GPLv3 or later
 Type: freemium
 
@@ -113,25 +113,6 @@ I did, and so have you.  Maybe there will be more, who knows.
 
 
 == Changelog ==
-= 8.2 =
-* Add  extra textarea ( Pro version only)
-
-= 8.1.3 =
-* Update libraries
-
-= 8.1.2 =
-* Fix issue with sending emails
-
-= 8.1.1 =
-* Fix issue that settings radio and checkbox do not show after save
-* Fix issue that radio creates fatal
-* Fix issue that  checkbox value does not show on list
-* Fix delete ALL messages
-* Fix issue with setting subject to page title
-
-= 8.1 =
-* Refactored main code into separate function / includes
-* Added support for spam message store
 
 
-[Full Change History](https://plugins.trac.wordpress.org/browser/quick-contact-form/trunk/changelog.txt)
+[Full Change Log](https://fullworksplugins.com/docs/quick-contact-form/installation-quick-contact-form/change-log-qcf/)

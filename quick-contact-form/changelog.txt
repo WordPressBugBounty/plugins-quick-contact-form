@@ -1,3 +1,6 @@
+= 8.2.1 =
+* Update libraries
+
 = 8.2 =
 * Add  extra textarea ( Pro version only)
 
