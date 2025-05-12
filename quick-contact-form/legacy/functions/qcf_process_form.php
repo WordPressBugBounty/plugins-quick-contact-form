@@ -252,7 +252,7 @@ function qcf_process_confirmations(
     if ( $attach['qcf_attach_link'] && $gotlinks ) {
         $sendcontent .= apply_filters( 'qcf_attach_link_h2_markup', '<h2 class="attach-link">' ) . esc_html__( 'Attachments:', 'quick-contact-form' ) . apply_filters( 'qcf_attach_link_h2_markup', '</h2>' );
         for ($i = 1; $i <= $attach['qcf_number']; $i++) {
-            $filename = $_FILES['filename' . $i]['name'];
+            $filename = ( isset( $_FILES['filename' . $i]['name'] ) ? $_FILES['filename' . $i]['name'] : '' );
             $filename = trim( preg_replace( '/[^A-Za-z0-9. ]/', '', $filename ) );
             $filename = str_replace( ' ', '-', $filename );
             if ( $filename ) {
@@ -398,9 +398,9 @@ function qcf_handle_attachments(  array $attach  ) {
     $gotlinks = false;
     for ($i = 1; $i <= $attach['qcf_number']; $i++) {
         if ( isset( $_FILES['filename' . $i] ) ) {
-            $filename = $_FILES['filename' . $i]['tmp_name'];
+            $filename = ( isset( $_FILES['filename' . $i]['tmp_name'] ) ? $_FILES['filename' . $i]['tmp_name'] : '' );
             if ( file_exists( $filename ) ) {
-                $name = $_FILES['filename' . $i]['name'];
+                $name = ( isset( $_FILES['filename' . $i]['name'] ) ? $_FILES['filename' . $i]['name'] : '' );
                 $name = trim( preg_replace( '/[^A-Za-z0-9. ]/', '', $name ) );
                 $name = str_replace( ' ', '-', $name );
                 if ( file_exists( $upload . '/qcf/' . $name ) ) {

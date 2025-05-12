@@ -288,7 +288,7 @@ function qcf_get_stored_msg() {
         'messagetype'  => 'notspam',
     );
     $messageoptions = array_merge( $default, $messageoptions );
-    if ( isset( $_REQUEST['messagetype'] ) && in_array( $_REQUEST['messagetype'], array('spam', 'notspam') ) ) {
+    if ( isset( $_REQUEST['messagetype'] ) && in_array( sanitize_text_field( $_REQUEST['messagetype'] ), array('spam', 'notspam') ) ) {
         $messageoptions['messagetype'] = sanitize_text_field( wp_unslash( $_REQUEST['messagetype'] ) );
     }
     return $messageoptions;

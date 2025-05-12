@@ -169,13 +169,19 @@ function qcf_setup(  $id  ) {
 <div style="border: 1px solid black; padding: 10px; background-color: #90ee90;">
     <p>Brilliant - you are automatically protected from spam</p> 
     <p>By <a href="' . get_admin_url() . 'options-general.php?page=fullworks-anti-spam-settings" >Fullworks\' Anti Spam - see the settings here</a> </p>
-	<p><a href="?page=quick-contact-form&tab=error">Change the anti-spam error message</a>.</p></div>';
+	<p><a href="' . esc_url( add_query_arg( array(
+                'page' => 'quick-contact-form',
+                'tab'  => 'error',
+            ), admin_url( 'admin.php' ) ) ) . '">Change the anti-spam error message</a>.</p></div>';
         }
     }
     $content .= $as_message;
     if ( !empty( $qcf_apikey ) ) {
         $content .= '<h2>Use Akismet Validation</h2>
-    <p>Note: Akismet is not free for commercial sites, please ensure you have an appropriate licence. Enter your API Key to check all messages against the Akismet database. <a href="?page=quick-contact-form&tab=error">Change the error message</a>.</p> 
+    <p>Note: Akismet is not free for commercial sites, please ensure you have an appropriate licence. Enter your API Key to check all messages against the Akismet database. <a href="' . esc_url( add_query_arg( array(
+            'page' => 'quick-contact-form',
+            'tab'  => 'error',
+        ), admin_url( 'admin.php' ) ) ) . '">Change the error message</a>.</p> 
     <p><input type="text" label="akismet" name="qcf_apikey" value="' . esc_attr( $qcf_apikey ) . '" /></p>
     <p><input type="submit" name="Validate" class="qcf-button" value="Activate Akismet Validation" />&nbsp;
 <input type="submit" name="Delete" class="qcf-button" value="Deactivate Aksimet Validation" onclick="return window.confirm( \'This will delete the Akismet Key.\\nAre you sure you want to do this?\' );"/></p>';
@@ -199,23 +205,49 @@ function qcf_setup(  $id  ) {
         $content .= $new;
     }
     $content .= '<h2>Options and Settings</h2>
-    <p><span style="font-weight:bold"><a href="?page=quick-contact-form&tab=settings">Form Settings.</a></span> Change the layout of the form, add or remove fields and the order they appear and edit the labels and captions.</p>
-    <p><span style="font-weight:bold"><a href="?page=quick-contact-form&tab=attach">Attachments.</a></span> Set how the form handles attachments.</p>
-    <p><span style="font-weight:bold"><a href="?page=quick-contact-form&tab=styles">Styling.</a></span> Change fonts, colours, borders, images and submit button.</p>
-    <p><span style="font-weight:bold"><a href="?page=quick-contact-form&tab=send">Send Options.</a></span> Change the thank you message and how the form is sent.</p>
-    <p><span style="font-weight:bold"><a href="?page=quick-contact-form&tab=autoresponce">Auto Responder.</a></span> Send rich content messages to your visitors.</p>
-    <p><span style="font-weight:bold"><a href="?page=quick-contact-form&tab=error">Error Messages.</a></span> Change the error message.</p>
-    <p><span style="font-weight:bold"><a href="?page=quick-contact-form&tab=mailinglist">' . esc_html__( 'Mailchimp', 'quick-contact-form' ) . '.</a></span> ' . esc_html__( 'Add your visitors to a mailchimp list.', 'quick-contact-form' );
+    <p><span style="font-weight:bold"><a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'settings',
+    ), admin_url( 'admin.php' ) ) ) . '">Form Settings.</a></span> Change the layout of the form, add or remove fields and the order they appear and edit the labels and captions.</p>
+    <p><span style="font-weight:bold"><a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'attach',
+    ), admin_url( 'admin.php' ) ) ) . '">Attachments.</a></span> Set how the form handles attachments.</p>
+    <p><span style="font-weight:bold"><a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'styles',
+    ), admin_url( 'admin.php' ) ) ) . '">Styling.</a></span> Change fonts, colours, borders, images and submit button.</p>
+    <p><span style="font-weight:bold"><a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'send',
+    ), admin_url( 'admin.php' ) ) ) . '">Send Options.</a></span> Change the thank you message and how the form is sent.</p>
+    <p><span style="font-weight:bold"><a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'autoresponce',
+    ), admin_url( 'admin.php' ) ) ) . '">Auto Responder.</a></span> Send rich content messages to your visitors.</p>
+    <p><span style="font-weight:bold"><a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'error',
+    ), admin_url( 'admin.php' ) ) ) . '">Error Messages.</a></span> Change the error message.</p>
+	<p><span style="font-weight:bold"><a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'mailinglist',
+    ), admin_url( 'admin.php' ) ) ) . '">' . esc_html__( 'Mailchimp', 'quick-contact-form' ) . '.</a></span> ' . esc_html__( 'Add your visitors to a mailchimp list.', 'quick-contact-form' );
     if ( $quick_contact_form_fs->is_not_paying() ) {
         $content .= ' ' . esc_html__( 'QCF Pro users only.', 'quick-contact-form' );
     }
     $content .= '</p>';
-    $content .= '<p><span style="font-weight:bold"><a href="?page=quick-contact-form&tab=buildlist">' . esc_html__( 'Mail Lists', 'quick-contact-form' ) . '.</a></span> ' . esc_html__( 'Build an email list and send messages.', 'quick-contact-form' );
+    $content .= '<p><span style="font-weight:bold"><a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'buildlist',
+    ), admin_url( 'admin.php' ) ) ) . '">' . esc_html__( 'Mail Lists', 'quick-contact-form' ) . '.</a></span> ' . esc_html__( 'Build an email list and send messages.', 'quick-contact-form' );
     if ( $quick_contact_form_fs->is_not_paying() ) {
         $content .= ' ' . esc_html__( 'QCF Pro users only.', 'quick-contact-form' );
     }
     $content .= '</p>
-    <p><span style="font-weight:bold"><a href="?page=quick-contact-form-messages">Message Centre.</a></span> See all messages. Or click on the <b>Message</b> link in the dashboard menu.</p>';
+	<p><span style="font-weight:bold"><a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form-messages',
+    ), admin_url( 'admin.php' ) ) ) . '">Message Centre.</a></span> See all messages. Or click on the <b>Message</b> link in the dashboard menu.</p>';
     if ( $quick_contact_form_fs->is_not_paying() ) {
         global $quick_contact_form_fs;
         if ( $quick_contact_form_fs->is_trial() || $quick_contact_form_fs->is_trial_utilized() ) {
@@ -229,7 +261,7 @@ function qcf_setup(  $id  ) {
     <p>If you have any questions visit the <a href="https://fullworks.net/docs/quick-contact-form/">plugin knowledge base</a> or use the free plugin community support forum  at <a href="https://wordpress.org/support/plugin/quick-contact-form/">wordpress.org</a>.</p>';
     } else {
         $content .= '<h2>Pro Plugin Support</h2>
-    <p>Use the <a href="' . admin_url( 'options-general.php?page=quick-contact-form-contact' ) . '">Contact Tab</a>.</p>';
+    <p>Use the <a href="' . esc_url( admin_url( 'options-general.php?page=quick-contact-form-contact' ) ) . '">Contact Tab</a>.</p>';
     }
     $content .= '</div></div>';
     echo $content;
@@ -473,8 +505,14 @@ function qcf_form_settings(  $id  ) {
     <h2 style="color:#B52C00">Form Preview</h2>
     <p>Note: The preview form uses the wordpress admin styles. Your form will use the theme styles so won\'t look exactly like the one below.</p>';
     $content .= qcf_loop( $id );
-    $content .= '<p>Have you set up the <a href="?page=quick-contact-form&tab=reply">reply options</a>?</p>
-    <p>You can also customise the <a href="?page=quick-contact-form&tab=error">error messages</a>.</p>
+    $content .= '<p>Have you set up the <a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'reply',
+    ), admin_url( 'admin.php' ) ) ) . '">reply options</a>?</p>
+    <p>You can also customise the <a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'error',
+    ), admin_url( 'admin.php' ) ) ) . '">error messages</a>.</p>
     </div>
     </div>';
     echo $content;
@@ -1020,7 +1058,10 @@ function qcf_reply_page(  $id  ) {
     <td colspan="2"><h2>Reply Message</h2></td>
     </tr>
     <tr>
-    <td  colspan="2">You can reply to the sender using the <a href="?page=quick-contact-form&tab=autoresponce">Auto Responder</a>.</td>
+    <td  colspan="2">You can reply to the sender using the <a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'autoresponce',
+    ), admin_url( 'admin.php' ) ) ) . '">Auto Responder</a>.</td>
     </tr>
     <tr>
     <td colspan="2"><h2>Reload Page</h2></td>
@@ -1234,7 +1275,10 @@ function qcf_antispam_message() {
 <div style="border: 1px solid black; padding: 10px; background-color: #90ee90;">
     <p>Brilliant - you are automatically protected from spam</p> 
     <p>By <a href="' . esc_url( get_admin_url() ) . 'options-general.php?page=fullworks-anti-spam-settings" >Fullworks\' Anti Spam - see the settings here</a> </p>
-	<p><a href="?page=quick-contact-form&tab=error">Change the anti-spam error message</a>.</p></div>';
+	<p><a href="' . esc_url( add_query_arg( array(
+                'page' => 'quick-contact-form',
+                'tab'  => 'error',
+            ), admin_url( 'admin.php' ) ) ) . '">Change the anti-spam error message</a>.</p></div>';
         }
     }
     return $as_message;
@@ -1247,7 +1291,10 @@ function qcf_buildlist_page() {
      */
     global $quick_contact_form_fs;
     $content = '<div class="qcf-settings"><div class="qcf-options">';
-    $content .= '<p>' . esc_html__( 'To build a mailing list', 'quick-contact-form' ) . ' <a href="?page=quick-contact-form&tab=extensions">' . esc_html__( 'Upgrade to Pro', 'quick-contact-form' ) . '</a>.</p>';
+    $content .= '<p>' . esc_html__( 'To build a mailing list', 'quick-contact-form' ) . ' <a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'extensions',
+    ), admin_url( 'admin.php' ) ) ) . '">' . esc_html__( 'Upgrade to Pro', 'quick-contact-form' ) . '</a>.</p>';
     $content .= '</div></div>';
     echo $content;
 }
@@ -1299,7 +1346,10 @@ function qcf_autoresponce_page(  $id  ) {
 	<p><input type="checkbox" style="margin: 0; padding: 0; border: none;" name="enable"' . esc_attr( $auto['enable'] ) . ' value="checked" /> Enable Auto Responder.</p>
 <p>From Name (<span class="description">Defaults to your <a href="' . get_admin_url() . 'options-general.php">Site Title</a> if left blank.</span>):<br>
     <input type="text" style="width:50%" name="fromname" value="' . esc_attr( $auto['fromname'] ) . '" /></p>
-    <p>From Email (<span class="description">Defaults to the <a href="?page=quick-contact-form&tab=setup">Setup Email</a> if left blank.</span>):<br>
+    <p>From Email (<span class="description">Defaults to the <a href="' . esc_url( add_query_arg( array(
+        'page' => 'quick-contact-form',
+        'tab'  => 'setup',
+    ), admin_url( 'admin.php' ) ) ) . '">Setup Email</a> if left blank.</span>):<br>
     <input type="text" style="width:50%" name="fromemail" value="' . esc_attr( $auto['fromemail'] ) . '" /></p>    
 <p>Subject:<br>
 <input style="width:100%" type="text" name="subject" value="' . esc_attr( $auto['subject'] ) . '"/></p>
@@ -1548,9 +1598,28 @@ function qcf_tabbed_page() {
     $qcf_setup = qcf_get_stored_setup();
     $id = $qcf_setup['current'];
     echo '<div class="wrapper"><h1>Quick Contact Form</h1>';
+    // Define valid tabs
+    $valid_tabs = array(
+        'setup',
+        'settings',
+        'attach',
+        'styles',
+        'reply',
+        'autoresponce',
+        'error',
+        'extensions',
+        'mailinglist',
+        'buildlist',
+        'sendemail'
+    );
     if ( isset( $_GET['tab'] ) ) {
-        qcf_admin_tabs( $_GET['tab'] );
-        $tab = $_GET['tab'];
+        $tab = sanitize_text_field( $_GET['tab'] );
+        // Validate tab parameter
+        if ( !in_array( $tab, $valid_tabs ) ) {
+            $tab = 'setup';
+            // Default to setup if invalid
+        }
+        qcf_admin_tabs( $tab );
     } else {
         qcf_admin_tabs( 'setup' );
         $tab = 'setup';
@@ -1610,9 +1679,13 @@ function qcf_admin_tabs(  $current = 'settings'  ) {
     echo '<h2 class="nav-tab-wrapper">';
     foreach ( $tabs as $tab => $name ) {
         $class = ( $tab == $current ? ' nav-tab-active' : '' );
-        echo '<a class="nav-tab' . $class . '" href="?page=' . QUICK_CONTACT_FORM_PLUGIN_NAME . '&tab=' . $tab . '">' . $name . '</a>';
+        $url = add_query_arg( array(
+            'page' => QUICK_CONTACT_FORM_PLUGIN_NAME,
+            'tab'  => $tab,
+        ), admin_url( 'admin.php' ) );
+        echo '<a class="nav-tab' . $class . '" href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a>';
     }
-    echo '<a class="nav-tab" target="_blank" href="https://fullworksplugins.com/docs/quick-contact-form/">' . esc_html__( 'Documentation', 'quick-contact-form' ) . '<svg style="height:1em" class="feather feather-external-link" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>';
+    echo '<a class="nav-tab" target="_blank" href="' . esc_url( 'https://fullworksplugins.com/docs/quick-contact-form/' ) . '">' . esc_html__( 'Documentation', 'quick-contact-form' ) . '<svg style="height:1em" class="feather feather-external-link" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>';
     echo '</h2>';
 }
 

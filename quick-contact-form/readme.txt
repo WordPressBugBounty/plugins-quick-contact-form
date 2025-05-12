@@ -1,8 +1,8 @@
 === Quick Contact Form ===
 Contributors: Fullworks
 Tags: contact form, form, email form, custom form, form builder
-Tested up to: 6.7
-Stable tag: 8.2.1
+Tested up to: 6.8
+Stable tag: 8.2.2
 License: GPLv3 or later
 Type: freemium
 
@@ -110,6 +110,10 @@ If it all goes wrong, just reinstall the plugin and start again.
 
 = Does anybody read these things? =
 I did, and so have you.  Maybe there will be more, who knows.
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/9e5fb1f1-f19f-4717-89c2-d0ed24755127)
 
 
 == Changelog ==

@@ -2,6 +2,9 @@
 
 $qcf_setup = qcf_get_stored_setup();
 $tabs = explode( ",", $qcf_setup['alternative'] );
+// Add 'default' to the list of valid tabs
+$valid_tabs = $tabs;
+$valid_tabs[] = 'default';
 $firsttab = reset( $tabs );
 echo '<div class="wrap">';
 echo '<h1>' . esc_html__( 'Quick Contact Form Messages', 'quick-contact-form' ) . '</h1>';
@@ -9,6 +12,11 @@ echo '<h1>' . esc_html__( 'Quick Contact Form Messages', 'quick-contact-form' ) 
 if ( isset( $_GET['tab'] ) ) {
     // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
     $tab = sanitize_text_field( $_GET['tab'] );
+    // Validate the tab against our list of valid tabs
+    if ( !in_array( $tab, $valid_tabs ) ) {
+        $tab = $firsttab;
+        // Default to first tab if invalid
+    }
     qcf_messages_admin_tabs( $tab );
 } else {
     qcf_messages_admin_tabs( $firsttab );
@@ -81,7 +89,11 @@ function qcf_messages_admin_tabs(  $current = 'default'  ) {
     foreach ( $tabs as $tab ) {
         $class = ( $tab == $current ? ' nav-tab-active' : '' );
         if ( $tab ) {
-            echo '<a class="nav-tab' . esc_attr( $class ) . '" href="?page=quick-contact-form-messages&tab=' . esc_attr( $tab ) . '">' . wp_kses_post( $tab ) . '</a>';
+            $url = add_query_arg( array(
+                'page' => 'quick-contact-form-messages',
+                'tab'  => $tab,
+            ), admin_url( 'admin.php' ) );
+            echo '<a class="nav-tab' . esc_attr( $class ) . '" href="' . esc_url( $url ) . '">' . esc_html( $tab ) . '</a>';
         }
     }
     echo '</h2>';
