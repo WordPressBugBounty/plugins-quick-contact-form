@@ -38,7 +38,7 @@ function qcf_setup ($id) {
     }
     
     $arr = explode(",",$qcf_setup['alternative']);
-    foreach ($arr as $item) if (isset($_POST['deleteform'.$item]) && $_POST['deleteform'.$item] == $item && $_POST['delete'.$item] && $item != '') {
+    foreach ($arr as $item) if (isset($_POST['deleteform'.$item]) && $_POST['deleteform'.$item] == $item && $_POST['delete'.$item] && $item != '' && check_admin_referer("save_qcf")) {
         $forms = $qcf_setup['alternative'];
         $qcf_setup['alternative'] = str_replace($item.',','',$forms);
         $qcf_setup['current'] = '';

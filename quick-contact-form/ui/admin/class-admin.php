@@ -43,6 +43,9 @@ class Admin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		//add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notice_freemius' ) );
+		
+		// Add Post SMTP admin notice
+		add_action( 'admin_notices', array( $this, 'post_smtp_admin_notice' ) );
 	}
 
 	public function enqueue_styles() {
@@ -54,6 +57,7 @@ class Admin {
 	}
 
 	public function admin_notice_freemius() {
+		
 		// Don't display notices to users that can't do anything about it.
 		if ( ! current_user_can( 'install_plugins' ) ) {
 			return;
@@ -82,6 +86,41 @@ class Admin {
 			printf( '<div id="message" class="notice notice-warning" style="overflow:hidden;font-size: 150%;"><p>%1$s</p></div>', wp_kses_post($notice) );
 		}
 
+	}
+	
+	public function post_smtp_admin_notice() {
+		// Don't display notices to users that can't do anything about it.
+		if ( ! current_user_can( 'install_plugins' ) ) {
+			return;
+		}
+		
+		// Check if Post SMTP plugin is active
+		if( ! function_exists( 'is_plugin_active' ) ) {
+			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		}
+		
+		$is_post_smtp_active = is_plugin_active( 'post-smtp/postman-smtp.php' );
+		
+		// Don't show notice if Post SMTP is active
+		if( $is_post_smtp_active ) {
+			return;
+		}
+		
+		// Check if global notice is hidden
+		$is_notice_hidden = get_option( 'post_smtp_global_recommendation_notice_hidden', false );
+		if( $is_notice_hidden ) {
+			return;
+		}
+		
+		// Include and initialize Post SMTP admin notice  
+		$notice_file = trailingslashit( QUICK_CONTACT_FORM_PLUGIN_DIR ) . 'control/post-smtp-notice/recommend-post-smtp-admin-notice.php';
+		if( file_exists( $notice_file ) && ! class_exists( 'Recommend_Post_SMTP_Admin_Notice' ) ) {
+			require_once( $notice_file );
+			$notice = \Recommend_Post_SMTP_Admin_Notice::get_instance();
+			$notice->set_plugin_info( 'quick-contact-form', 'png' );
+			$notice->admin_head();
+			$notice->admin_enqueue_scripts();
+		}
 	}
 
 }

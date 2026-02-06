@@ -49,7 +49,7 @@ function qcf_setup(  $id  ) {
     }
     $arr = explode( ",", $qcf_setup['alternative'] );
     foreach ( $arr as $item ) {
-        if ( isset( $_POST['deleteform' . $item] ) && $_POST['deleteform' . $item] == $item && $_POST['delete' . $item] && $item != '' ) {
+        if ( isset( $_POST['deleteform' . $item] ) && $_POST['deleteform' . $item] == $item && $_POST['delete' . $item] && $item != '' && check_admin_referer( "save_qcf" ) ) {
             $forms = $qcf_setup['alternative'];
             $qcf_setup['alternative'] = str_replace( $item . ',', '', $forms );
             $qcf_setup['current'] = '';
@@ -1608,6 +1608,7 @@ function qcf_tabbed_page() {
         'autoresponce',
         'error',
         'extensions',
+        'smtp',  // Add SMTP tab to valid tabs
         'mailinglist',
         'buildlist',
         'sendemail'
@@ -1660,11 +1661,38 @@ function qcf_tabbed_page() {
             break;
         case 'extensions':
             break;
+        case 'smtp':
+            // Enqueue scripts for SMTP tab
+            wp_enqueue_script( 'wp-updates' );
+            wp_enqueue_script( 'recommend-post-smtp-script', QUICK_CONTACT_FORM_PLUGIN_URL . 'control/post-smtp-notice/assets/js/admin-script.js', array( 'wp-updates', 'jquery' ), '1.0.0', true );
+            wp_localize_script( 'recommend-post-smtp-script', 'recommendPostSMTP', array(
+                'redirectURL'   => admin_url( "admin-post.php?action=hide-post-smtp-recommendation-notice&nonce=" . wp_create_nonce( 'hide-post-smtp-recommendation-notice' ) ),
+                'postSMTPURL'   => admin_url( "admin.php?page=postman" ),
+                'ajaxURL'       => admin_url( 'admin-ajax.php' ),
+                'ajaxNonce'     => wp_create_nonce( 'post_smtp_request_nonce' )
+            ) );
+            
+            require_once( QUICK_CONTACT_FORM_PLUGIN_DIR . 'control/post-smtp-notice/recommend-post-smtp-base.php' );
+            
+            // Initialize with true for show_admin_notice so all hooks are registered
+            $post_smtp_recommendation = new \RecommendPostSMTP\Base\Recommend_Post_SMTP_Base( 'quick-contact-form', true, false, 'png' );
+            
+            // Call all important methods
+            $post_smtp_recommendation->admin_enqueue_scripts();  // Load scripts
+            $post_smtp_recommendation->admin_head();             // Load CSS
+            $post_smtp_recommendation->recommend_post_smtp_submenu(); // Display content
+            break;
     }
     echo '</div>';
 }
 
 function qcf_admin_tabs(  $current = 'settings'  ) {
+    // Check if Post SMTP plugin is active
+    if( ! function_exists( 'is_plugin_active' ) ) {
+        require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+    }
+    $is_post_smtp_active = is_plugin_active( 'post-smtp/postman-smtp.php' );
+    
     $tabs = array(
         'setup'        => 'Setup',
         'settings'     => 'Form Settings',
@@ -1675,6 +1703,11 @@ function qcf_admin_tabs(  $current = 'settings'  ) {
         'error'        => 'Error Messages',
         'extensions'   => 'Extensions',
     );
+    
+    // Add SMTP tab only if Post SMTP is not active
+    if( ! $is_post_smtp_active ) {
+        $tabs['smtp'] = 'SMTP';
+    }
     $links = array();
     echo '<h2 class="nav-tab-wrapper">';
     foreach ( $tabs as $tab => $name ) {
@@ -1683,10 +1716,34 @@ function qcf_admin_tabs(  $current = 'settings'  ) {
             'page' => QUICK_CONTACT_FORM_PLUGIN_NAME,
             'tab'  => $tab,
         ), admin_url( 'admin.php' ) );
-        echo '<a class="nav-tab' . $class . '" href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a>';
+        
+        // Special styling for SMTP tab
+        if( $tab === 'smtp' ) {
+            echo '<a class="nav-tab' . $class . ' qcf-smtp-tab" href="' . esc_url( $url ) . '">SMTP <span class="awaiting-mod"><span class="pending-count">Free</span></span></a>';
+        } else {
+            echo '<a class="nav-tab' . $class . '" href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a>';
+        }
     }
     echo '<a class="nav-tab" target="_blank" href="' . esc_url( 'https://fullworksplugins.com/docs/quick-contact-form/' ) . '">' . esc_html__( 'Documentation', 'quick-contact-form' ) . '<svg style="height:1em" class="feather feather-external-link" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>';
     echo '</h2>';
+    
+    // Add custom styling for SMTP tab
+    echo '<style type="text/css">
+        .nav-tab-wrapper .qcf-smtp-tab {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+            border-color: #667eea !important;
+        }
+        .nav-tab-wrapper .qcf-smtp-tab:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+            color: white !important;
+        }
+        .nav-tab-wrapper .qcf-smtp-tab.nav-tab-active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+            border-bottom-color: #667eea !important;
+        }
+    </style>';
 }
 
 add_action( 'init', 'qcf_settings_init' );

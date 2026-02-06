@@ -64,11 +64,8 @@ function qcf_process_confirmations(
     $content = '';
     $auto = qcf_get_stored_autoresponder( $id );
     $hd = ( $style['header-type'] ? $style['header-type'] : 'h2' );
-    $qcfemail = qcf_get_stored_email();
-    $qcf_email = ( $qcfemail[$id] ? $qcfemail[$id] : get_bloginfo( 'admin_email' ) );
-    if ( isset( $_GET["email"] ) ) {
-        $qcf_email = sanitize_email( $_GET["email"] );
-    }
+    $qcfemail  = qcf_get_stored_email();
+    $qcf_email = ( ! empty( $qcfemail[ $id ] ) ? $qcfemail[ $id ] : get_bloginfo( 'admin_email' ) );
     $values['qcfname2'] = ( $values['qcfname2'] ? $values['qcfname2'] : $qcf_email );
     if ( !empty( $reply['replytitle'] ) ) {
         $reply['replytitle'] = apply_filters( 'qcf_reply_title_h2_markup', '<' . $hd . ' class="reply-title">' ) . $reply['replytitle'] . apply_filters( 'qcf_reply_title_end_h2_markup', '</' . $hd . '>' );
@@ -269,7 +266,7 @@ function qcf_process_confirmations(
     }
     $headers .= "MIME-Version: 1.0\r\n" . "Content-Type: text/html; charset=\"utf-8\"\r\n";
     $message = $sendcontent;
-    $emails = qcf_get_stored_emails( $id );
+    $emails  = qcf_get_stored_emails( $id );
     if ( function_exists( 'qcf_select_email' ) || $emails['emailenable'] ) {
         $email = qcf_redirect_by_email( $id, $values['qcfname5'] );
         if ( $email ) {
